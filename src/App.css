@@ -1,0 +1,132 @@
+  @import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&family=Instrument+Serif:ital@0;1&family=Josefin+Sans:wght@400;500&family=Kumbh+Sans:wght@400;500&family=Lato&family=Lobster&family=Nunito+Sans&family=Open+Sans&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:ital@0;1&family=REM:ital,wght@0,300;0,400;1,300&family=Roboto:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 100%;
+  position: relative;
+}
+
+.post_lists {
+  text-align: center;
+  background: rgb(85, 102, 232);
+  width: 100%;
+  height: 200px;
+  padding-bottom: 4em;
+  /* padding-top: 1em; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 1.7;
+  color: #fff;
+}
+
+.post_lists h1 {
+  font-size: 1.2rem;
+  margin-bottom: .5em;
+}
+
+.input_field{
+  background: #fff;
+  height: 3em;
+  width: 30em;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input_field input {
+  border: none;
+  outline: none;
+  background: none;
+  width: 90%;
+  height: 100%;
+  padding-left: 10px;
+}
+
+.icons  {
+  background: #000;
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+
+.input_field .search_icon {
+  font-size: 1.5rem;
+}
+
+/* Data Section */
+.data_section {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2),0px 3px 8px rgba(0, 0, 0, 0.10);
+}
+
+.data_section div {
+  border-right: 1px solid #ddd;
+  padding-right: .5em;
+}
+
+.data_section div:last-child {
+  border: none;
+}
+
+.data_section p {
+  font-size: .7rem;
+}
+
+.data_section h3 {
+  flex-wrap: wrap;
+  white-space: wrap;
+}
+
+@media screen and (width <= 900px){
+   .data_section {
+    top: 16%;
+   }
+}
+
+@media screen and (max-width: 768px){
+   .data_section {
+     top: 24%;
+     width: 95%;
+     gap: .5em;
+     text-align: center;
+   }
+
+   .data_section h3 {
+    font-size: .9rem;
+    word-break: break-all;
+   }
+
+   .input_field {
+    width: 80%;
+   }
+
+   .input_field .icons {
+     width: 15%;
+   }
+}

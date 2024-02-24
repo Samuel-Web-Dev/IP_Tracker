@@ -23,7 +23,7 @@ class PostList extends Component {
    handleSubmit = () => {
     const { inputField } = this.state
     if(!inputField) return;
-     axios.get(`http://ip-api.com/json/${inputField}`)
+     axios.get(`https://ip-api.com/json/${inputField}`)
      .then(response => {
        this.setState({ posts: [response.data] }, () => {
         this.setState({inputField: ''})

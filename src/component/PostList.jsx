@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import InputField from './InputField';
 import DataSection from './DataSection';
-import axios from 'axios';
+import swal from 'sweetalert';
 
 class PostList extends Component {
   constructor(){
@@ -23,14 +23,27 @@ class PostList extends Component {
    handleSubmit = () => {
     const { inputField } = this.state
     if(!inputField) return;
-     axios.get(`https://ip-api.com/json/${inputField}`)
-     .then(response => {
-       this.setState({ posts: [response.data] }, () => {
-        this.setState({inputField: ''})
-       })
+     fetch(`http://ip-api.com/json/${inputField}`)
+     .then(response => response.json())
+     .then(data => {
+      // Check if data is successfully fetched
+      if (data.status === 'success') {
+        this.setState({ posts: [data] }, () => {
+          this.setState({ inputField: '' });
+        });
+      } else {
+        // Handle error response from API
+        if(data.message === 'private range'){
+          swal('Error', 'Cannot Track private IPV4 Networks', 'error')
+          return
+        } else {
+          swal('Error Occured', 'Something went wrong', 'error')
+        }
+      }
      })
      .catch(error => {
       console.error(error);
+      console.log(error.message);
      })
 
    }
